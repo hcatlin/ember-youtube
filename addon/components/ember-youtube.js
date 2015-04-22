@@ -10,6 +10,7 @@ export default Ember.Component.extend({
 	showControls: false,
 	showTime: false,
 	showProgress: false,
+	startAtSeconds: 0,
 	showDebug: false,
 	autoplay: 1,
 
@@ -119,9 +120,9 @@ export default Ember.Component.extend({
 		}
 
 		if (this.playerVars.autoplay) {
-			player.loadVideoById(id);
+			player.loadVideoById(id, this.get("startAtSeconds"));
 		} else {
-			player.cueVideoById(id);
+			player.cueVideoById(id, this.get("startAtSeconds"));
 		}
 	}.observes('ytid'),
 
