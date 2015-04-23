@@ -194,7 +194,7 @@ export default Ember.Component.extend({
 
 	stopTimer: function() {
 		window.clearInterval(this.get('timer'));
-	},
+	}.on("willDestroyElement"),
 
 	// avoids 'undefined' value for the <progress> element
 	currentTimeValue: function() {
